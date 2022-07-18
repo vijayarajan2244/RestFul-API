@@ -1,0 +1,160 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+</head>
+<body>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="add_post text-center">
+                    <button type="button" class="btn btn-primary add_post_btn" id="add_btn"  data-bs-toggle="modal" data-bs-target="#addpost"><i class="bi bi-plus-circle-fill"></i> Add Post</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row" id="appenddiv">
+                    <!-- <div class="col-lg-4">
+                        <div class="post_box mt-3" id="post_div">
+                            <div class="title">
+                                <h4>Biggest Supermoon of 2022</h4>
+                            </div>
+                            <div class="post_img mt-3">
+                                <img src="https://images.unsplash.com/photo-1499578124509-1611b77778c8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZnVsbCUyMG1vb258ZW58MHx8MHx8&w=1000&q=80" alt="">
+                            </div>
+                            <div class="post_desc mt-3">
+                                <p class="post_para">The Moon is Earth's only natural satellite. At about one-quarter the diameter of Earth (comparable to the width of Australia), it is the fifth largest satellite in the Solar System, the largest satellite in the Solar System relative to its major planet, and larger than any known dwarf planet.</p>
+                            </div>
+                            <div class="foot_sec d-flex align-items-center">
+                                <div>
+                                    <div class="time"><i class="bi bi-clock me-1"></i>12:20 PM</div>
+                                </div>
+                                <div class="d-flex ms-auto">
+                                    <div class="edit me-3">
+                                        <a href="" data-bs-toggle="modal" data-bs-target="#editpost"><i class="bi bi-pencil-square"></i></a>
+                                    </div>
+                                    <div class="delete">
+                                        <a href=""><i class="bi bi-trash-fill"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="addpost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Post</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form name="addpost">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Title</label>
+                    <input type="text" name="title" class="form-control" placeholder="Post Your Title" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Image</label>
+                    <input type="text" class="form-control" name="image" id="input_file" placeholder="Paste Image URL">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword2" class="form-label">Description</label>
+                    <textarea class="form-control" name="desc"  rows="5" placeholder="Post your Description"></textarea>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary add_post_btn" id="submitbtn">Post</button>
+                </div>              
+            </form>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="modal fade" id="editpost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Post</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form name="editpost">
+                    <div class="mb-3">
+                        <label for="editid" class="form-label">Id</label>
+                        <input type="text" name="id" class="form-control" id="editid" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="edittitle" class="form-label">Title</label>
+                        <input type="text" name="title" class="form-control" id="edittitle" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editimage" class="form-label">Image</label>
+                        <input type="text" class="form-control" name="image" id="editimage">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editdesc" class="form-label">Description</label>
+                        <input type="text" class="form-control" name="desc" id="editdesc">
+                    </div>
+                    <div class="d-block text-center">
+                        <button class="btn btn-primary add_post_btn" id="submitbtn">Update</button>
+                    </div>
+                    
+                </form>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="modal fade" id="deletepost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Delete Post</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Are you sure you want to delete post ?
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-danger" id="del_post_btn">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+
+
+<div id="show_img"></div>
+
+
+
+
+
+
+
+
+
+
+
+    <script src="/Js/jquery.min.js"></script>
+    <script src="/Js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
